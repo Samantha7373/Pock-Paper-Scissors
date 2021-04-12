@@ -7,10 +7,33 @@
 </head>
 <body>
     <script>
-        function computerplay(){
-            console.log("hello world");
+
+        // let playerinput=window.prompt("rock or paper or scissors")
+        
+        
+
+        function computerPlay(){
+            let randomint= Math.floor((Math.random() *3))
+            if(randomint == 1){
+                return "Rock";
+            }    
+            if(randomint == 2){
+                return "Scissors";
+            }
+            return "Paper";
         }
-        computerplay();
+        let computerChoice=computerPlay();
+        console.log(computerChoice);
+        
+        // if(playerinput == paper){
+        //     console.log("winner")
+        // }
+        
+        // if (playerinput == rock){
+        //     console.log(winner)
+        // }
+                
+            
     </script>
 </body>
-</html>
+ </html> 
