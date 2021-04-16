@@ -7,6 +7,7 @@
 </head>
 <body>
    <script>
+        let score = 0;
         function computerPlay(){
             let randomint= Math.floor((Math.random() *3))
             if(randomint == 1){
@@ -17,22 +18,73 @@
             }
             return "PAPER";
         }
-         let computerChoice=computerPlay();
-         console.log(computerChoice);
          
        
          function singleRound(playerSelection, computerChoice){
-          if (playerSelection == PAPER && computerChoice == paper) toUPPERCASE;
-           return "tie";
-            if (playerSelection == PAPER && computerChoice == rock) toUPPERCASE;
-            return "win";
-                if (playerSelection == PAPER && computerChoice == scissors) toUPPERCASE;
-                return "loss";
+            if (playerSelection == "PAPER" && computerChoice == "PAPER"){
+
+                return `Tie: Your battle was valiant but you were equal in luck: ${playerSelection} vs ${computerChoice}`
+            }else if (playerSelection == "PAPER" && computerChoice == "ROCK"){
+                score += 500;
+                return `Winner winner chicken dinner: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "PAPER" && computerChoice == "SCISSORS"){
+                score -= 500;
+                return `Your luck sucks: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "ROCK" && computerChoice == "PAPER"){
+                score -= 500
+                return `Your luck sucks: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "ROCK" && computerChoice == "ROCK"){
+                
+                return `Tie: Your battle was valiant but you were equal in luck: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "ROCK" && computerChoice == "SCISSORS"){
+                score += 500
+                return `Winner winner chicken dinner: ${playerSelection} vs ${computerChoice}`;
+            }  else if (playerSelection == "SCISSORS" && computerChoice == "PAPER"){
+                score += 500
+                return `Winner winner chicken dinner: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "SCISSORS" && computerChoice == "ROCK"){
+                score -= 500
+                return `Your luck sucks: ${playerSelection} vs ${computerChoice}`;
+            }else if (playerSelection == "SCISSORS" && computerChoice == "SCISSORS"){
+
+                return `Tie: Your battle was valiant but you were equal in luck: ${playerSelection} vs ${computerChoice}`;
+            }     
          }
-            let playerinput=window.prompt("rock or paper or scissors")
-        
-            function gamePlay(){}
+
+                  
+        function gamePlay(){
+            alert(`round 1: Score : ${score}`);
+            let playerinput= prompt("rock or paper or scissors").toLocaleUpperCase();  
+            let computerChoice = computerPlay();
+            console.log(singleRound(playerinput,computerChoice));
+            
+            alert(`round 2: Score : ${score}`);
+            playerinput= prompt("rock or paper or scissors").toLocaleUpperCase();  
+            computerChoice = computerPlay();
+            console.log(singleRound(playerinput,computerChoice));
+
+            alert(`round 3: Score : ${score}`);
+            playerinput= prompt("rock or paper or scissors").toLocaleUpperCase();  
+            computerChoice = computerPlay();
+            console.log(singleRound(playerinput,computerChoice));
+
+            alert(`round 4: Score : ${score}`);
+            playerinput= prompt("rock or paper or scissors").toLocaleUpperCase();  
+            computerChoice = computerPlay();
+            console.log(singleRound(playerinput,computerChoice));
+
+            alert(`round 5: Score : ${score}`);
+            playerinput= prompt("rock or paper or scissors").toLocaleUpperCase();  
+            computerChoice = computerPlay();
+            console.log (singleRound (playerinput,computerChoice) );
+
+
+
+
+            alert(`Final Score - ${score}`);
+        }
    
+        gamePlay();
     </script>
 </body>
 </html> 
